@@ -9,12 +9,116 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    let funnlLogo : UIImageView = {
+        let imgView = UIImageView()
+        imgView.image = UIImage(named: "funnl-logo-simple.png")
+        imgView.contentMode = .scaleAspectFill
+        
+        return imgView
+    }()
+    
+    let actionCallLabel : UILabel = {
+        let label = UILabel()
+        label.text = "Start your journey now!"
+        label.font = label.font.withSize(24)
+        label.textAlignment = .center
+        
+        return label
+    }()
+    
+    let buttonContainer: UIView = {
+        let view = UIView()
+        
+        return view
+    }()
+    
+    let signUpButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Sign Up", for: .normal)
+        button.setTitleColor(UIColor(named: "background-text-icon-color"), for: .normal)
+        button.backgroundColor = UIColor(named: "button-subheader-color")
+        button.titleLabel?.font = .systemFont(ofSize: 32)
+        button.layer.cornerRadius = 30
+        
+        return button
+    }()
+    
+    let logInButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Log In", for: .normal)
+        button.setTitleColor(UIColor(named: "background-text-icon-color"), for: .normal)
+        button.backgroundColor = UIColor(named: "button-subheader-color")
+        button.titleLabel?.font = .systemFont(ofSize: 32)
+        button.layer.cornerRadius = 30
+        
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor(named: "background-text-icon-color")
+        
+        //Funnl Logo handlers
+        self.view.addSubview(funnlLogo)
+        setImgViewConstraints()
+        
+        //Button Container handlers
+        self.view.addSubview(buttonContainer)
+        setButtonContainterConstraints()
+        
+        //Label handlers
+        self.view.addSubview(actionCallLabel)
+        setLabelConstraints()
+        
+        buttonContainer.addSubview(signUpButton)
+        setSignUpButtonConstraints()
+        
+        buttonContainer.addSubview(logInButton)
+        setLogInButtonConstraints()
+        
     }
+    
+    
 
-
+    func setImgViewConstraints(){
+        funnlLogo.translatesAutoresizingMaskIntoConstraints = false
+        funnlLogo.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        funnlLogo.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.60).isActive = true
+        funnlLogo.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        funnlLogo.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+    }
+    
+    func setLabelConstraints(){
+        actionCallLabel.translatesAutoresizingMaskIntoConstraints = false
+        actionCallLabel.bottomAnchor.constraint(equalTo: buttonContainer.topAnchor).isActive = true
+        actionCallLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        actionCallLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+        actionCallLabel.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.05).isActive = true
+    }
+    
+    func setButtonContainterConstraints(){
+        buttonContainer.translatesAutoresizingMaskIntoConstraints = false
+        buttonContainer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        buttonContainer.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        buttonContainer.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+        buttonContainer.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.30).isActive = true
+    }
+    
+    func setSignUpButtonConstraints() {
+        signUpButton.translatesAutoresizingMaskIntoConstraints = false
+        signUpButton.topAnchor.constraint(equalTo: buttonContainer.topAnchor).isActive = true
+        signUpButton.leadingAnchor.constraint(equalTo: buttonContainer.leadingAnchor).isActive = true
+        signUpButton.trailingAnchor.constraint(equalTo: buttonContainer.trailingAnchor).isActive = true
+        signUpButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+    }
+    
+    func setLogInButtonConstraints(){
+        logInButton.translatesAutoresizingMaskIntoConstraints = false
+        logInButton.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 10).isActive = true
+        logInButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        logInButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+        logInButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+    }
 }
 
