@@ -21,7 +21,8 @@ class ViewController: UIViewController {
     let actionCallLabel : UILabel = {
         let label = UILabel()
         label.text = "Start your journey now!"
-        label.font = label.font.withSize(24)
+        label.textColor = UIColor(named: "secondary-text-color")
+        label.font = UIFont(name: "Roboto", size: 24)
         label.textAlignment = .center
         
         return label
@@ -38,8 +39,8 @@ class ViewController: UIViewController {
         button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(UIColor(named: "background-text-icon-color"), for: .normal)
         button.backgroundColor = UIColor(named: "button-subheader-color")
-        button.titleLabel?.font = .systemFont(ofSize: 32)
-        button.layer.cornerRadius = 30
+        button.titleLabel?.font = UIFont(name: "Roboto", size: 32)
+        button.layer.cornerRadius = 25
         
         return button
     }()
@@ -49,8 +50,8 @@ class ViewController: UIViewController {
         button.setTitle("Log In", for: .normal)
         button.setTitleColor(UIColor(named: "background-text-icon-color"), for: .normal)
         button.backgroundColor = UIColor(named: "button-subheader-color")
-        button.titleLabel?.font = .systemFont(ofSize: 32)
-        button.layer.cornerRadius = 30
+        button.titleLabel?.font = UIFont(name: "Roboto", size: 32)
+        button.layer.cornerRadius = 25
         
         return button
     }()
@@ -71,6 +72,7 @@ class ViewController: UIViewController {
         self.view.addSubview(actionCallLabel)
         setLabelConstraints()
         
+        //Button handlers
         buttonContainer.addSubview(signUpButton)
         setSignUpButtonConstraints()
         
@@ -110,7 +112,7 @@ class ViewController: UIViewController {
         signUpButton.topAnchor.constraint(equalTo: buttonContainer.topAnchor).isActive = true
         signUpButton.leadingAnchor.constraint(equalTo: buttonContainer.leadingAnchor).isActive = true
         signUpButton.trailingAnchor.constraint(equalTo: buttonContainer.trailingAnchor).isActive = true
-        signUpButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        signUpButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     func setLogInButtonConstraints(){
@@ -118,7 +120,7 @@ class ViewController: UIViewController {
         logInButton.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 10).isActive = true
         logInButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         logInButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        logInButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        logInButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
 }
 
