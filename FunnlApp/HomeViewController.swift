@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     
     let funnlLogo : UIImageView = {
         let imgView = UIImageView()
@@ -72,16 +72,20 @@ class ViewController: UIViewController {
         self.view.addSubview(actionCallLabel)
         setLabelConstraints()
         
-        //Button handlers
+        //Sign-Up Button handlers
         buttonContainer.addSubview(signUpButton)
         setSignUpButtonConstraints()
         
+        //Log-In Button handlers
         buttonContainer.addSubview(logInButton)
         setLogInButtonConstraints()
         
+        //Set up button IB actions
+        setIBActions()
+        
     }
     
-    
+    // MARK: - Constraint Functions
 
     func setImgViewConstraints(){
         funnlLogo.translatesAutoresizingMaskIntoConstraints = false
@@ -121,6 +125,25 @@ class ViewController: UIViewController {
         logInButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         logInButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
         logInButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    // MARK: - Segue Functions
+    
+    @objc func logInButtonClicked(sender: UIButton){
+        let page = LogInViewController()
+        page.modalPresentationStyle = .fullScreen
+        present(page, animated: true, completion: nil)
+    }
+    
+    @objc func signUpButtonClicked(sender: UIButton){
+        let page = SignUpViewController()
+        page.modalPresentationStyle = .fullScreen
+        present(page, animated: true, completion: nil)
+    }
+    
+    func setIBActions(){
+        logInButton.addTarget(self, action: #selector(self.logInButtonClicked(sender:)), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(self.signUpButtonClicked(sender:)), for: .touchUpInside)
     }
 }
 

@@ -26,9 +26,11 @@
 		2C109DED24DCB3DF00024135 /* Pridi-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C109DE724DCB3DF00024135 /* Pridi-Light.ttf */; };
 		2C109DEE24DCB3DF00024135 /* Pridi-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C109DE824DCB3DF00024135 /* Pridi-Medium.ttf */; };
 		2C109DF124DCB42B00024135 /* GildaDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C109DF024DCB42B00024135 /* GildaDisplay-Regular.ttf */; };
+		2C109DF424DCBD1D00024135 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C109DF324DCBD1D00024135 /* LogInViewController.swift */; };
+		2C109DF624DCBE8E00024135 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C109DF524DCBE8E00024135 /* SignUpViewController.swift */; };
 		2CAC8ED224DB5E25006078E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAC8ED124DB5E25006078E9 /* AppDelegate.swift */; };
 		2CAC8ED424DB5E25006078E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAC8ED324DB5E25006078E9 /* SceneDelegate.swift */; };
-		2CAC8ED624DB5E25006078E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAC8ED524DB5E25006078E9 /* ViewController.swift */; };
+		2CAC8ED624DB5E25006078E9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAC8ED524DB5E25006078E9 /* HomeViewController.swift */; };
 		2CAC8EDB24DB5E27006078E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CAC8EDA24DB5E27006078E9 /* Assets.xcassets */; };
 		2CAC8EDE24DB5E27006078E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CAC8EDC24DB5E27006078E9 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -53,10 +55,12 @@
 		2C109DE724DCB3DF00024135 /* Pridi-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pridi-Light.ttf"; sourceTree = "<group>"; };
 		2C109DE824DCB3DF00024135 /* Pridi-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pridi-Medium.ttf"; sourceTree = "<group>"; };
 		2C109DF024DCB42B00024135 /* GildaDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GildaDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		2C109DF324DCBD1D00024135 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		2C109DF524DCBE8E00024135 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2CAC8ECE24DB5E25006078E9 /* FunnlApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunnlApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CAC8ED124DB5E25006078E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CAC8ED324DB5E25006078E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2CAC8ED524DB5E25006078E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2CAC8ED524DB5E25006078E9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2CAC8EDA24DB5E27006078E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CAC8EDD24DB5E27006078E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CAC8EDF24DB5E27006078E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -145,7 +149,9 @@
 				2C109DF224DCB43C00024135 /* Fonts */,
 				2CAC8ED124DB5E25006078E9 /* AppDelegate.swift */,
 				2CAC8ED324DB5E25006078E9 /* SceneDelegate.swift */,
-				2CAC8ED524DB5E25006078E9 /* ViewController.swift */,
+				2CAC8ED524DB5E25006078E9 /* HomeViewController.swift */,
+				2C109DF324DCBD1D00024135 /* LogInViewController.swift */,
+				2C109DF524DCBE8E00024135 /* SignUpViewController.swift */,
 				2CAC8EDA24DB5E27006078E9 /* Assets.xcassets */,
 				2CAC8EDC24DB5E27006078E9 /* LaunchScreen.storyboard */,
 				2CAC8EDF24DB5E27006078E9 /* Info.plist */,
@@ -242,9 +248,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CAC8ED624DB5E25006078E9 /* ViewController.swift in Sources */,
+				2C109DF424DCBD1D00024135 /* LogInViewController.swift in Sources */,
+				2CAC8ED624DB5E25006078E9 /* HomeViewController.swift in Sources */,
 				2CAC8ED224DB5E25006078E9 /* AppDelegate.swift in Sources */,
 				2CAC8ED424DB5E25006078E9 /* SceneDelegate.swift in Sources */,
+				2C109DF624DCBE8E00024135 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
