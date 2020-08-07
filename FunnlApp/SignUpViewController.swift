@@ -216,7 +216,12 @@ class SignUpViewController: UIViewController {
         setPasswordImageContraints()
         passwordTextFieldContainer.addSubview(passwordTextField)
         setPasswordTextFieldConstraints()
+        
+        //IBActions
+        setUpIBActions()
     }
+    
+    // MARK: - Contraints Functions
     
     func setTopContainerViewConstraints(){
         topContainerView.translatesAutoresizingMaskIntoConstraints = false
@@ -303,7 +308,7 @@ class SignUpViewController: UIViewController {
         passwordTextFieldContainer.translatesAutoresizingMaskIntoConstraints = false
         passwordTextFieldContainer.leadingAnchor.constraint(equalTo: textFieldsContainer.leadingAnchor).isActive = true
         passwordTextFieldContainer.trailingAnchor.constraint(equalTo: textFieldsContainer.trailingAnchor).isActive = true
-        passwordTextFieldContainer.topAnchor.constraint(equalTo: usernameTextFieldContainer.bottomAnchor, constant: 20).isActive = true
+        passwordTextFieldContainer.topAnchor.constraint(equalTo: usernameTextFieldContainer.bottomAnchor, constant: 15).isActive = true
         passwordTextFieldContainer.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.08).isActive = true
     }
     
@@ -353,6 +358,18 @@ class SignUpViewController: UIViewController {
         passwordTextField.trailingAnchor.constraint(equalTo: passwordTextFieldContainer.trailingAnchor).isActive = true
         passwordTextField.topAnchor.constraint(equalTo: passwordTextFieldContainer.topAnchor).isActive = true
         passwordTextField.bottomAnchor.constraint(equalTo: passwordTextFieldContainer.bottomAnchor).isActive = true
+    }
+    
+    //MARK: - Segue Functions
+    
+    @objc func backButtonClicked(){
+        let page = HomeViewController()
+        page.modalPresentationStyle = .fullScreen
+        present(page, animated: true, completion: nil)
+    }
+    
+    func setUpIBActions(){
+        backButton.addTarget(self, action: #selector(self.backButtonClicked), for: .touchUpInside)
     }
 
 }
