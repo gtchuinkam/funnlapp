@@ -91,21 +91,17 @@ class SignUpViewController: UIViewController {
     
     let emailTextFieldContainer: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemPink
-        
         return view
     }()
     
     let passwordTextFieldContainer: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemPink
-        
         return view
     }()
     
     let usernameImage: UIImageView = {
         let imgView = UIImageView()
-        imgView.image = UIImage(named: "user-icon.png")
+        imgView.image = UIImage(named: "user-icon")
         imgView.contentMode = .scaleAspectFill
         
         return imgView
@@ -121,6 +117,45 @@ class SignUpViewController: UIViewController {
         
         return textField
     }()
+    
+    let emailImage: UIImageView = {
+        let imgView = UIImageView()
+        imgView.image = UIImage(named: "envelope-icon")
+        imgView.contentMode = .scaleAspectFill
+        
+        return imgView
+    }()
+    
+    let emailTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Email"
+        textField.clearButtonMode = .whileEditing
+        textField.textColor = UIColor(named: "black")
+        textField.font = UIFont(name: "Roboto", size: 24)
+        textField.textAlignment = .left
+        
+        return textField
+    }()
+    
+    let passwordImage: UIImageView = {
+        let imgView = UIImageView()
+        imgView.image = UIImage(named: "lock-icon")
+        imgView.contentMode = .scaleAspectFill
+        
+        return imgView
+    }()
+    
+    let passwordTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Password"
+        textField.clearButtonMode = .whileEditing
+        textField.textColor = UIColor(named: "black")
+        textField.font = UIFont(name: "Roboto", size: 24)
+        textField.textAlignment = .left
+        
+        return textField
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -169,6 +204,18 @@ class SignUpViewController: UIViewController {
         setUsernameImageConstraints()
         usernameTextFieldContainer.addSubview(usernameTextField)
         setUsernameTextFieldConstraints()
+        
+        //Email Elements handlers
+        emailTextFieldContainer.addSubview(emailImage)
+        setEmailImageConstraints()
+        emailTextFieldContainer.addSubview(emailTextField)
+        setEmailTextFieldConstraints()
+        
+        //Password Elements handlers
+        passwordTextFieldContainer.addSubview(passwordImage)
+        setPasswordImageContraints()
+        passwordTextFieldContainer.addSubview(passwordTextField)
+        setPasswordTextFieldConstraints()
     }
     
     func setTopContainerViewConstraints(){
@@ -274,6 +321,38 @@ class SignUpViewController: UIViewController {
         usernameTextField.trailingAnchor.constraint(equalTo: usernameTextFieldContainer.trailingAnchor).isActive = true
         usernameTextField.topAnchor.constraint(equalTo: usernameTextFieldContainer.topAnchor).isActive = true
         usernameTextField.bottomAnchor.constraint(equalTo: usernameTextFieldContainer.bottomAnchor).isActive = true
+    }
+    
+    func setEmailImageConstraints(){
+        emailImage.translatesAutoresizingMaskIntoConstraints = false
+        emailImage.leadingAnchor.constraint(equalTo: emailTextFieldContainer.leadingAnchor).isActive = true
+        emailImage.topAnchor.constraint(equalTo: emailTextFieldContainer.topAnchor).isActive = true
+        emailImage.bottomAnchor.constraint(equalTo: emailTextFieldContainer.bottomAnchor).isActive = true
+        emailImage.widthAnchor.constraint(equalTo: emailImage.heightAnchor).isActive = true
+    }
+    
+    func setEmailTextFieldConstraints(){
+        emailTextField.translatesAutoresizingMaskIntoConstraints = false
+        emailTextField.leadingAnchor.constraint(equalTo: emailImage.trailingAnchor).isActive = true
+        emailTextField.trailingAnchor.constraint(equalTo: emailTextFieldContainer.trailingAnchor).isActive = true
+        emailTextField.topAnchor.constraint(equalTo: emailTextFieldContainer.topAnchor).isActive = true
+        emailTextField.bottomAnchor.constraint(equalTo: emailTextFieldContainer.bottomAnchor).isActive = true
+    }
+    
+    func setPasswordImageContraints(){
+        passwordImage.translatesAutoresizingMaskIntoConstraints = false
+        passwordImage.leadingAnchor.constraint(equalTo: passwordTextFieldContainer.leadingAnchor).isActive = true
+        passwordImage.topAnchor.constraint(equalTo: passwordTextFieldContainer.topAnchor).isActive = true
+        passwordImage.bottomAnchor.constraint(equalTo: passwordTextFieldContainer.bottomAnchor).isActive = true
+        passwordImage.widthAnchor.constraint(equalTo: passwordImage.heightAnchor).isActive = true
+    }
+    
+    func setPasswordTextFieldConstraints(){
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextField.leadingAnchor.constraint(equalTo: passwordImage.trailingAnchor).isActive = true
+        passwordTextField.trailingAnchor.constraint(equalTo: passwordTextFieldContainer.trailingAnchor).isActive = true
+        passwordTextField.topAnchor.constraint(equalTo: passwordTextFieldContainer.topAnchor).isActive = true
+        passwordTextField.bottomAnchor.constraint(equalTo: passwordTextFieldContainer.bottomAnchor).isActive = true
     }
 
 }
