@@ -10,6 +10,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    //MARK: - UI Elements Initialization
+    
     let funnlLogo : UIImageView = {
         let imgView = UIImageView()
         imgView.image = UIImage(named: "funnl-logo-simple.png")
@@ -35,7 +37,7 @@ class HomeViewController: UIViewController {
     }()
     
     let signUpButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(UIColor(named: "background-text-icon-color"), for: .normal)
         button.backgroundColor = UIColor(named: "button-subheader-color")
@@ -46,7 +48,7 @@ class HomeViewController: UIViewController {
     }()
     
     let logInButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Log In", for: .normal)
         button.setTitleColor(UIColor(named: "background-text-icon-color"), for: .normal)
         button.backgroundColor = UIColor(named: "button-subheader-color")
@@ -55,6 +57,8 @@ class HomeViewController: UIViewController {
         
         return button
     }()
+    
+    //MARK:- ViewDidLoad Function
     
     override func viewDidLoad() {
         super.viewDidLoad()

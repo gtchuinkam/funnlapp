@@ -10,6 +10,8 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
+    //MARK: - UI Elements Initialization
+    
     let topContainerView: UIView = {
         let view  = UIView()
         
@@ -17,8 +19,9 @@ class SignUpViewController: UIViewController {
     }()
     
     let backButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setImage(UIImage(named: "back-arrow.png"), for: .normal)
+        button.tintColor = UIColor(named: "button-subheader-color")
         
         return button
     }()
@@ -50,7 +53,7 @@ class SignUpViewController: UIViewController {
     }()
     
     let signUpButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(UIColor(named: "background-text-icon-color"), for: .normal)
         button.backgroundColor = UIColor(named: "button-subheader-color")
@@ -156,6 +159,7 @@ class SignUpViewController: UIViewController {
         return textField
     }()
     
+    //MARK: - ViewDidLoad Function
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -368,6 +372,12 @@ class SignUpViewController: UIViewController {
         present(page, animated: true, completion: nil)
     }
     
+    @objc func signUpButtonClicked(sender: UIButton){
+        let navController = UINavigationController(rootViewController: DashboardViewController())
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true, completion: nil)
+    }
+    
     @objc func linkLabelClicked(){
         let page = LogInViewController()
         page.modalPresentationStyle = .fullScreen
@@ -379,8 +389,12 @@ class SignUpViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.linkLabelClicked))
         linkLabel.isUserInteractionEnabled = true
         linkLabel.addGestureRecognizer(tap)
+        
         //Back Button Set-Up
         backButton.addTarget(self, action: #selector(self.backButtonClicked), for: .touchUpInside)
+        
+        //Sign Up Buttion Set-UP
+        signUpButton.addTarget(self, action: #selector(self.signUpButtonClicked(sender:)), for: .touchUpInside)
         
     }
 

@@ -10,6 +10,8 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
+    //MARK:- UI Elements initialization
+    
     let topContainerView: UIView = {
         let view  = UIView()
         
@@ -17,8 +19,9 @@ class LogInViewController: UIViewController {
     }()
     
     let backButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setImage(UIImage(named: "back-arrow.png"), for: .normal)
+        button.tintColor = UIColor(named: "button-subheader-color")
         
         return button
     }()
@@ -44,7 +47,7 @@ class LogInViewController: UIViewController {
     }()
     
     let logInButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Log In", for: .normal)
         button.setTitleColor(UIColor(named: "background-text-icon-color"), for: .normal)
         button.backgroundColor = UIColor(named: "button-subheader-color")
@@ -134,6 +137,8 @@ class LogInViewController: UIViewController {
         
         return textField
     }()
+    
+    //MARK: - ViewDidLoad Function
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -333,13 +338,23 @@ class LogInViewController: UIViewController {
         present(page, animated: true, completion: nil)
     }
     
+    @objc func logInButtonClicked(sender: UIButton){
+        let navController = UINavigationController(rootViewController: DashboardViewController())
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true, completion: nil)
+    }
+    
     func setUpIBActions(){
         //Link Label Set-Up
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.linkLabelClicked))
         linkLabel.isUserInteractionEnabled = true
         linkLabel.addGestureRecognizer(tap)
+        
         //Back Button Set-Up
         backButton.addTarget(self, action: #selector(self.backButtonClicked), for: .touchUpInside)
+        
+        //LogIn Button Set-Up
+        logInButton.addTarget(self, action: #selector(self.logInButtonClicked(sender:)), for: .touchUpInside)
         
     }
 
