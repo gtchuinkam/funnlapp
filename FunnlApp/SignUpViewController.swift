@@ -368,8 +368,20 @@ class SignUpViewController: UIViewController {
         present(page, animated: true, completion: nil)
     }
     
+    @objc func linkLabelClicked(){
+        let page = LogInViewController()
+        page.modalPresentationStyle = .fullScreen
+        present(page, animated: true, completion: nil)
+    }
+    
     func setUpIBActions(){
+        //Link Label Set-Up
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.linkLabelClicked))
+        linkLabel.isUserInteractionEnabled = true
+        linkLabel.addGestureRecognizer(tap)
+        //Back Button Set-Up
         backButton.addTarget(self, action: #selector(self.backButtonClicked), for: .touchUpInside)
+        
     }
 
 }

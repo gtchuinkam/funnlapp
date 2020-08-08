@@ -56,7 +56,7 @@ class LogInViewController: UIViewController {
     
     let questionLabel : UILabel = {
         let label = UILabel()
-        label.text = "Have an account?"
+        label.text = "New User?"
         label.textColor = UIColor(named: "black")
         label.font = UIFont(name: "Roboto", size: 18)
         label.textAlignment = .right
@@ -66,7 +66,7 @@ class LogInViewController: UIViewController {
     
     let linkLabel : UILabel = {
         let label = UILabel()
-        let attributedString = NSMutableAttributedString.init(string: "Log In")
+        let attributedString = NSMutableAttributedString.init(string: "Sign Up")
         attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range:
             NSRange.init(location: 0, length: attributedString.length));
         label.attributedText = attributedString
@@ -244,7 +244,7 @@ class LogInViewController: UIViewController {
         questionLabel.translatesAutoresizingMaskIntoConstraints = false
         questionLabel.topAnchor.constraint(equalTo: logInButton.bottomAnchor).isActive = true
         questionLabel.leadingAnchor.constraint(equalTo: buttonContainer.leadingAnchor).isActive = true
-        questionLabel.widthAnchor.constraint(equalTo: buttonContainer.widthAnchor, multiplier: 0.6).isActive = true
+        questionLabel.widthAnchor.constraint(equalTo: buttonContainer.widthAnchor, multiplier: 0.5).isActive = true
         
     }
     
@@ -327,8 +327,20 @@ class LogInViewController: UIViewController {
         present(page, animated: true, completion: nil)
     }
     
+    @objc func linkLabelClicked(){
+        let page = SignUpViewController()
+        page.modalPresentationStyle = .fullScreen
+        present(page, animated: true, completion: nil)
+    }
+    
     func setUpIBActions(){
+        //Link Label Set-Up
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.linkLabelClicked))
+        linkLabel.isUserInteractionEnabled = true
+        linkLabel.addGestureRecognizer(tap)
+        //Back Button Set-Up
         backButton.addTarget(self, action: #selector(self.backButtonClicked), for: .touchUpInside)
+        
     }
 
 }
