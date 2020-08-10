@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DashboardViewController: UIViewController {
+class DashboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     //MARK: - UI Elements Initialization
     
@@ -26,7 +26,6 @@ class DashboardViewController: UIViewController {
     
     let tasksContainter: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemRed
         
         return view
     }()
@@ -45,7 +44,6 @@ class DashboardViewController: UIViewController {
         button.contentVerticalAlignment = .fill
         button.contentHorizontalAlignment = .fill
         button.tintColor = UIColor(named: "background-text-icon-color")
-        button.layer.cornerRadius = 10
         
         return button
     }()
@@ -58,7 +56,6 @@ class DashboardViewController: UIViewController {
         button.contentVerticalAlignment = .fill
         button.contentHorizontalAlignment = .fill
         button.tintColor = UIColor(named: "background-text-icon-color")
-        button.layer.cornerRadius = 10
         
         return button
     }()
@@ -71,7 +68,6 @@ class DashboardViewController: UIViewController {
         button.contentVerticalAlignment = .fill
         button.contentHorizontalAlignment = .fill
         button.tintColor = UIColor(named: "background-text-icon-color")
-        button.layer.cornerRadius = 10
         
         return button
     }()
@@ -99,8 +95,26 @@ class DashboardViewController: UIViewController {
     
     let tasksLabel: UILabel = {
         let label = UILabel()
+        label.text = "Upcoming Tasks"
+        label.font = UIFont(name: "Roboto", size: 60)
+        label.textColor = UIColor(named: "secondary-text-color")
+        
+        //Resizing attributes
+        label.numberOfLines = 1
+        label.minimumScaleFactor = 0.25
+        label.sizeToFit()
+        label.adjustsFontSizeToFitWidth = true;
         
         return label
+    }()
+    
+    let tasksTable: UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = UIColor(named: "background-text-icon-color")
+        tableView.separatorStyle = .none
+        tableView.alwaysBounceVertical = false
+        
+        return tableView
     }()
     
     //MARK: - viewDidLoad Function
@@ -147,6 +161,17 @@ class DashboardViewController: UIViewController {
         scannerContainter.addSubview(scannerButton)
         setScannerButtonConstraints()
         
+        //Tasks Label Handlers
+        tasksContainter.addSubview(tasksLabel)
+        setTasksLabelConstraints()
+        
+        //Tasks Table Handlers
+        tasksContainter.addSubview(tasksTable)
+        setTasksTableConstraints()
+        
+        setUpTableViewProtocols()
+        
+        setUpIBActions()
         
     }
 
@@ -243,5 +268,58 @@ class DashboardViewController: UIViewController {
         scannerButton.leadingAnchor.constraint(equalTo: scannerContainter.leadingAnchor).isActive = true
         scannerButton.trailingAnchor.constraint(equalTo: scannerContainter.trailingAnchor).isActive = true
     }
+    
+    func setTasksLabelConstraints(){
+        tasksLabel.translatesAutoresizingMaskIntoConstraints = false
+        tasksLabel.topAnchor.constraint(equalTo: tasksContainter.topAnchor).isActive = true
+        tasksLabel.leadingAnchor.constraint(equalTo: tasksContainter.leadingAnchor).isActive = true
+        tasksLabel.heightAnchor.constraint(equalTo: tasksContainter.heightAnchor, multiplier: 0.175).isActive = true
+        tasksLabel.widthAnchor.constraint(equalTo: tasksContainter.widthAnchor, multiplier: 0.75).isActive = true
+    }
+    
+    func setTasksTableConstraints(){
+        tasksTable.translatesAutoresizingMaskIntoConstraints = false
+        tasksTable.topAnchor.constraint(equalTo: tasksLabel.bottomAnchor , constant: 10).isActive = true
+        tasksTable.bottomAnchor.constraint(equalTo: tasksContainter.bottomAnchor, constant:  -10).isActive = true
+        tasksTable.leadingAnchor.constraint(equalTo: tasksContainter.leadingAnchor).isActive = true
+        tasksTable.trailingAnchor.constraint(equalTo: tasksContainter.trailingAnchor).isActive = true
+    }
+    
+    //MARK: - TableView Functions
+    func setUpTableViewProtocols(){
+        tasksTable.delegate = self
+        tasksTable.dataSource = self
+        tasksTable.register(TaskTableViewCell.self, forCellReuseIdentifier: "cellId")
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tasksTable.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! TaskTableViewCell
+        cell.backgroundColor = UIColor(named: "background-text-icon-color")
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let tableHeight = tasksTable.frame.height
+        let cellHeight = tableHeight / CGFloat(4)
+
+        return cellHeight
+
+    }
+    
+    //MARK: - Segue Functions
+    @objc func contactsButtonClicked(sender: UIButton){
+        let navController = UINavigationController(rootViewController: IndustryViewController())
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true, completion: nil)
+    }
+    
+    func setUpIBActions(){
+        contactsCard.addTarget(self, action: #selector(self.contactsButtonClicked(sender:)), for: .touchUpInside)
+    }
+    
     
 }

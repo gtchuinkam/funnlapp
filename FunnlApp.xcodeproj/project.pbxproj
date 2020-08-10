@@ -28,6 +28,8 @@
 		2C109DF124DCB42B00024135 /* GildaDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C109DF024DCB42B00024135 /* GildaDisplay-Regular.ttf */; };
 		2C109DF424DCBD1D00024135 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C109DF324DCBD1D00024135 /* LogInViewController.swift */; };
 		2C109DF624DCBE8E00024135 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C109DF524DCBE8E00024135 /* SignUpViewController.swift */; };
+		2C8357C624E085FD00848E91 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8357C524E085FD00848E91 /* TaskTableViewCell.swift */; };
+		2C8357CA24E0A80500848E91 /* IndustryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8357C924E0A80500848E91 /* IndustryViewController.swift */; };
 		2CAC8ED224DB5E25006078E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAC8ED124DB5E25006078E9 /* AppDelegate.swift */; };
 		2CAC8ED424DB5E25006078E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAC8ED324DB5E25006078E9 /* SceneDelegate.swift */; };
 		2CAC8ED624DB5E25006078E9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAC8ED524DB5E25006078E9 /* HomeViewController.swift */; };
@@ -58,6 +60,8 @@
 		2C109DF024DCB42B00024135 /* GildaDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GildaDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		2C109DF324DCBD1D00024135 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		2C109DF524DCBE8E00024135 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		2C8357C524E085FD00848E91 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		2C8357C924E0A80500848E91 /* IndustryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndustryViewController.swift; sourceTree = "<group>"; };
 		2CAC8ECE24DB5E25006078E9 /* FunnlApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunnlApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CAC8ED124DB5E25006078E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CAC8ED324DB5E25006078E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 				2C109DF324DCBD1D00024135 /* LogInViewController.swift */,
 				2C109DF524DCBE8E00024135 /* SignUpViewController.swift */,
 				2CCBDBCF24DF5AF900CC7646 /* DashboardViewController.swift */,
+				2C8357C524E085FD00848E91 /* TaskTableViewCell.swift */,
+				2C8357C924E0A80500848E91 /* IndustryViewController.swift */,
 				2CAC8EDA24DB5E27006078E9 /* Assets.xcassets */,
 				2CAC8EDC24DB5E27006078E9 /* LaunchScreen.storyboard */,
 				2CAC8EDF24DB5E27006078E9 /* Info.plist */,
@@ -251,6 +257,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C8357CA24E0A80500848E91 /* IndustryViewController.swift in Sources */,
+				2C8357C624E085FD00848E91 /* TaskTableViewCell.swift in Sources */,
 				2C109DF424DCBD1D00024135 /* LogInViewController.swift in Sources */,
 				2CCBDBD024DF5AF900CC7646 /* DashboardViewController.swift in Sources */,
 				2CAC8ED624DB5E25006078E9 /* HomeViewController.swift in Sources */,
