@@ -28,14 +28,19 @@
 		2C109DF124DCB42B00024135 /* GildaDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C109DF024DCB42B00024135 /* GildaDisplay-Regular.ttf */; };
 		2C109DF424DCBD1D00024135 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C109DF324DCBD1D00024135 /* LogInViewController.swift */; };
 		2C109DF624DCBE8E00024135 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C109DF524DCBE8E00024135 /* SignUpViewController.swift */; };
+		2C26322C24E5F27C004E7671 /* CompaniesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C26322B24E5F27C004E7671 /* CompaniesTableViewController.swift */; };
+		2C26322E24E5FAE2004E7671 /* CompanyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C26322D24E5FAE2004E7671 /* CompanyData.swift */; };
 		2C8357C624E085FD00848E91 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8357C524E085FD00848E91 /* TaskTableViewCell.swift */; };
 		2C8357CA24E0A80500848E91 /* IndustryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8357C924E0A80500848E91 /* IndustryViewController.swift */; };
+		2CA62D8424E497D5005D39B3 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA62D8324E497D5005D39B3 /* TabController.swift */; };
 		2CAC8ED224DB5E25006078E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAC8ED124DB5E25006078E9 /* AppDelegate.swift */; };
 		2CAC8ED424DB5E25006078E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAC8ED324DB5E25006078E9 /* SceneDelegate.swift */; };
 		2CAC8ED624DB5E25006078E9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAC8ED524DB5E25006078E9 /* HomeViewController.swift */; };
 		2CAC8EDB24DB5E27006078E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CAC8EDA24DB5E27006078E9 /* Assets.xcassets */; };
 		2CAC8EDE24DB5E27006078E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CAC8EDC24DB5E27006078E9 /* LaunchScreen.storyboard */; };
 		2CCBDBD024DF5AF900CC7646 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBDBCF24DF5AF900CC7646 /* DashboardViewController.swift */; };
+		2CEE425F24E5D8BB0085759A /* IndustryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEE425E24E5D8BB0085759A /* IndustryData.swift */; };
+		2CEE426224E5E4FA0085759A /* IndustryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEE426124E5E4FA0085759A /* IndustryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,8 +65,11 @@
 		2C109DF024DCB42B00024135 /* GildaDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GildaDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		2C109DF324DCBD1D00024135 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		2C109DF524DCBE8E00024135 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		2C26322B24E5F27C004E7671 /* CompaniesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesTableViewController.swift; sourceTree = "<group>"; };
+		2C26322D24E5FAE2004E7671 /* CompanyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyData.swift; sourceTree = "<group>"; };
 		2C8357C524E085FD00848E91 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		2C8357C924E0A80500848E91 /* IndustryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndustryViewController.swift; sourceTree = "<group>"; };
+		2CA62D8324E497D5005D39B3 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		2CAC8ECE24DB5E25006078E9 /* FunnlApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunnlApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CAC8ED124DB5E25006078E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CAC8ED324DB5E25006078E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +78,8 @@
 		2CAC8EDD24DB5E27006078E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CAC8EDF24DB5E27006078E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CCBDBCF24DF5AF900CC7646 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		2CEE425E24E5D8BB0085759A /* IndustryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndustryData.swift; sourceTree = "<group>"; };
+		2CEE426124E5E4FA0085759A /* IndustryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndustryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +143,20 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		2CA62D8224E496FD005D39B3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2CAC8ED524DB5E25006078E9 /* HomeViewController.swift */,
+				2C109DF324DCBD1D00024135 /* LogInViewController.swift */,
+				2C109DF524DCBE8E00024135 /* SignUpViewController.swift */,
+				2CA62D8324E497D5005D39B3 /* TabController.swift */,
+				2CCBDBCF24DF5AF900CC7646 /* DashboardViewController.swift */,
+				2C8357C924E0A80500848E91 /* IndustryViewController.swift */,
+				2C26322B24E5F27C004E7671 /* CompaniesTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		2CAC8EC524DB5E25006078E9 = {
 			isa = PBXGroup;
 			children = (
@@ -152,20 +176,35 @@
 		2CAC8ED024DB5E25006078E9 /* FunnlApp */ = {
 			isa = PBXGroup;
 			children = (
+				2CEE425B24E5C3680085759A /* Model */,
+				2CEE426024E5E4B30085759A /* Views */,
+				2CA62D8224E496FD005D39B3 /* Controller */,
 				2C109DF224DCB43C00024135 /* Fonts */,
 				2CAC8ED124DB5E25006078E9 /* AppDelegate.swift */,
 				2CAC8ED324DB5E25006078E9 /* SceneDelegate.swift */,
-				2CAC8ED524DB5E25006078E9 /* HomeViewController.swift */,
-				2C109DF324DCBD1D00024135 /* LogInViewController.swift */,
-				2C109DF524DCBE8E00024135 /* SignUpViewController.swift */,
-				2CCBDBCF24DF5AF900CC7646 /* DashboardViewController.swift */,
-				2C8357C524E085FD00848E91 /* TaskTableViewCell.swift */,
-				2C8357C924E0A80500848E91 /* IndustryViewController.swift */,
 				2CAC8EDA24DB5E27006078E9 /* Assets.xcassets */,
 				2CAC8EDC24DB5E27006078E9 /* LaunchScreen.storyboard */,
 				2CAC8EDF24DB5E27006078E9 /* Info.plist */,
 			);
 			path = FunnlApp;
+			sourceTree = "<group>";
+		};
+		2CEE425B24E5C3680085759A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2CEE425E24E5D8BB0085759A /* IndustryData.swift */,
+				2C26322D24E5FAE2004E7671 /* CompanyData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2CEE426024E5E4B30085759A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2C8357C524E085FD00848E91 /* TaskTableViewCell.swift */,
+				2CEE426124E5E4FA0085759A /* IndustryCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,10 +300,15 @@
 				2C8357C624E085FD00848E91 /* TaskTableViewCell.swift in Sources */,
 				2C109DF424DCBD1D00024135 /* LogInViewController.swift in Sources */,
 				2CCBDBD024DF5AF900CC7646 /* DashboardViewController.swift in Sources */,
+				2C26322E24E5FAE2004E7671 /* CompanyData.swift in Sources */,
 				2CAC8ED624DB5E25006078E9 /* HomeViewController.swift in Sources */,
 				2CAC8ED224DB5E25006078E9 /* AppDelegate.swift in Sources */,
 				2CAC8ED424DB5E25006078E9 /* SceneDelegate.swift in Sources */,
+				2CEE425F24E5D8BB0085759A /* IndustryData.swift in Sources */,
+				2CA62D8424E497D5005D39B3 /* TabController.swift in Sources */,
 				2C109DF624DCBE8E00024135 /* SignUpViewController.swift in Sources */,
+				2CEE426224E5E4FA0085759A /* IndustryCell.swift in Sources */,
+				2C26322C24E5F27C004E7671 /* CompaniesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

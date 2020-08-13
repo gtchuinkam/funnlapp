@@ -373,9 +373,14 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func signUpButtonClicked(sender: UIButton){
-        let navController = UINavigationController(rootViewController: DashboardViewController())
-        navController.modalPresentationStyle = .fullScreen
-        present(navController, animated: true, completion: nil)
+//        let navController = UINavigationController(rootViewController: DashboardViewController())
+//        navController.modalPresentationStyle = .fullScreen
+//        present(navController, animated: true, completion: nil)
+        
+        let tabController = TabController()
+        tabController.modalPresentationStyle = .fullScreen
+        present(tabController, animated: true, completion:nil)
+        
     }
     
     @objc func linkLabelClicked(){

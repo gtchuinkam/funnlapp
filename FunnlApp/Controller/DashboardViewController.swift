@@ -123,8 +123,6 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "background-text-icon-color")
         
-        setUpNavBar()
-        
         //Cards Container Handlers
         view.addSubview(cardsContainter)
         setCardsContainerConstraints()
@@ -172,6 +170,8 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         setUpTableViewProtocols()
         
         setUpIBActions()
+        
+        setUpNavBar()
         
     }
 
@@ -312,9 +312,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     
     //MARK: - Segue Functions
     @objc func contactsButtonClicked(sender: UIButton){
-        let navController = UINavigationController(rootViewController: IndustryViewController())
-        navController.modalPresentationStyle = .fullScreen
-        present(navController, animated: true, completion: nil)
+        self.tabBarController?.selectedIndex = 1
     }
     
     func setUpIBActions(){
