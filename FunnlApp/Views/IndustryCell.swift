@@ -13,6 +13,7 @@ class IndustryCell: UICollectionViewCell {
        let label = UILabel()
         label.font = UIFont(name: "Roboto", size: 24)
         label.text = "Sample Cell"
+        label.textAlignment = .center
         
         return label
     }()

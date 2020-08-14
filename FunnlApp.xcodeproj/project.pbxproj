@@ -30,6 +30,8 @@
 		2C109DF624DCBE8E00024135 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C109DF524DCBE8E00024135 /* SignUpViewController.swift */; };
 		2C26322C24E5F27C004E7671 /* CompaniesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C26322B24E5F27C004E7671 /* CompaniesTableViewController.swift */; };
 		2C26322E24E5FAE2004E7671 /* CompanyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C26322D24E5FAE2004E7671 /* CompanyData.swift */; };
+		2C26323024E60633004E7671 /* CollapsableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C26322F24E60633004E7671 /* CollapsableViewModel.swift */; };
+		2C26323224E60BFD004E7671 /* ContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C26323124E60BFD004E7671 /* ContactData.swift */; };
 		2C8357C624E085FD00848E91 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8357C524E085FD00848E91 /* TaskTableViewCell.swift */; };
 		2C8357CA24E0A80500848E91 /* IndustryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8357C924E0A80500848E91 /* IndustryViewController.swift */; };
 		2CA62D8424E497D5005D39B3 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA62D8324E497D5005D39B3 /* TabController.swift */; };
@@ -67,6 +69,8 @@
 		2C109DF524DCBE8E00024135 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2C26322B24E5F27C004E7671 /* CompaniesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesTableViewController.swift; sourceTree = "<group>"; };
 		2C26322D24E5FAE2004E7671 /* CompanyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyData.swift; sourceTree = "<group>"; };
+		2C26322F24E60633004E7671 /* CollapsableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsableViewModel.swift; sourceTree = "<group>"; };
+		2C26323124E60BFD004E7671 /* ContactData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactData.swift; sourceTree = "<group>"; };
 		2C8357C524E085FD00848E91 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		2C8357C924E0A80500848E91 /* IndustryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndustryViewController.swift; sourceTree = "<group>"; };
 		2CA62D8324E497D5005D39B3 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 			children = (
 				2CEE425E24E5D8BB0085759A /* IndustryData.swift */,
 				2C26322D24E5FAE2004E7671 /* CompanyData.swift */,
+				2C26323124E60BFD004E7671 /* ContactData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 			children = (
 				2C8357C524E085FD00848E91 /* TaskTableViewCell.swift */,
 				2CEE426124E5E4FA0085759A /* IndustryCell.swift */,
+				2C26322F24E60633004E7671 /* CollapsableViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,6 +315,8 @@
 				2C109DF624DCBE8E00024135 /* SignUpViewController.swift in Sources */,
 				2CEE426224E5E4FA0085759A /* IndustryCell.swift in Sources */,
 				2C26322C24E5F27C004E7671 /* CompaniesTableViewController.swift in Sources */,
+				2C26323024E60633004E7671 /* CollapsableViewModel.swift in Sources */,
+				2C26323224E60BFD004E7671 /* ContactData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
