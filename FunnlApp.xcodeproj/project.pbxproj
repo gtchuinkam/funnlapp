@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C0F970324E9A79A007C50C3 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F970224E9A79A007C50C3 /* ContactViewController.swift */; };
 		2C109DD624DCB36100024135 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C109DCA24DCB36000024135 /* Roboto-ThinItalic.ttf */; };
 		2C109DD724DCB36100024135 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C109DCB24DCB36000024135 /* Roboto-Medium.ttf */; };
 		2C109DD824DCB36100024135 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C109DCC24DCB36000024135 /* Roboto-Regular.ttf */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C0F970224E9A79A007C50C3 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		2C109DCA24DCB36000024135 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
 		2C109DCB24DCB36000024135 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		2C109DCC24DCB36000024135 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				2CCBDBCF24DF5AF900CC7646 /* DashboardViewController.swift */,
 				2C8357C924E0A80500848E91 /* IndustryViewController.swift */,
 				2C26322B24E5F27C004E7671 /* CompaniesTableViewController.swift */,
+				2C0F970224E9A79A007C50C3 /* ContactViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				2C26322E24E5FAE2004E7671 /* CompanyData.swift in Sources */,
 				2CAC8ED624DB5E25006078E9 /* HomeViewController.swift in Sources */,
 				2CAC8ED224DB5E25006078E9 /* AppDelegate.swift in Sources */,
+				2C0F970324E9A79A007C50C3 /* ContactViewController.swift in Sources */,
 				2CAC8ED424DB5E25006078E9 /* SceneDelegate.swift in Sources */,
 				2CEE425F24E5D8BB0085759A /* IndustryData.swift in Sources */,
 				2CA62D8424E497D5005D39B3 /* TabController.swift in Sources */,

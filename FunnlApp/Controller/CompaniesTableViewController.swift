@@ -10,114 +10,215 @@ import UIKit
 
 class CompaniesTableViewController: UITableViewController {
     
-    var companiesList : [CompanyData]?
-    var contactslist : [ContactData]?
+    let companiesURL = "http://localhost:8000/api/companies/?format=json"
+    let contactsURL = "http://localhost:8000/api/contacts/?format=json"
+    
+    var companiesList : [CompanyData] = []
+    var contactList: [ContactData] = []
     
     var selectedIndustryId : Int?
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "background-text-icon-color")
         
-        //API Data requests
-        fetchCompanies()
-        fetchContacts()
+        fetchCompanies(urlString: companiesURL) { (returnedList) in
+            self.companiesList = [CompanyData]()
+            self.companiesList = returnedList
+        }
+        
+        fetchContacts(urlString: contactsURL) { (returnedList) in
+            self.contactList = [ContactData]()
+            self.contactList = returnedList
+        }
+        
+        assignContacts()
+        
+        setUpTableView()
+        
     }
     
-    //MARK: - API Request handlers
+    //MARK: - Company API Request and Filter Functions
     
-    func fetchContacts(){
-        let urlString = "http://localhost:8000/api/contacts/?format=json"
+    func fetchCompanies(urlString : String, completionHandler : @escaping ([CompanyData]) -> ()){
         if let url = URL(string: urlString){
-            
             let session = URLSession(configuration: .default)
+            let group  = DispatchGroup()
             
+            group.enter()
             let task = session.dataTask(with: url) { (data, response, error) in
-                if error != nil{
+                if error != nil {
                     print(error!)
-                    return
                 }
                 
                 if let safeData = data {
-                    let parsedData = self.parseContactJSON(unparsedData: safeData)
-                    let finalList = self.filterContacts(contactList: parsedData)
-                    self.contactslist = finalList
+                    let parsedCompanyList = self.parseCompanyJSON(companyData: safeData)
+                    let sortedCompanyList = self.filterCompanyList(list: parsedCompanyList)
+                    completionHandler(sortedCompanyList)
+                    group.leave()
                 }
             }
-            task.resume()
-        }
-    }
-    
-    func parseContactJSON(unparsedData : Data) -> [ContactData]{
-        let decoder = JSONDecoder()
-        var contactsList : [ContactData] = []
-        
-        do{
-            let decodedData = try decoder.decode([ContactData].self, from: unparsedData)
-            contactsList = decodedData
-        }catch{
-            print(error)
-        }
-        
-        return contactsList
-    }
-    
-    func filterContacts(contactList : [ContactData]) -> [ContactData]{
-        var finalList : [ContactData] = []
-        for contact in contactList {
-            if contact.industry == self.selectedIndustryId{
-                finalList.append(contact)
-            }
-        }
-        
-        return finalList
-    }
-    
-    func fetchCompanies(){
-        let urlString = "http://localhost:8000/api/companies/?format=json"
-        if let url = URL(string: urlString){
             
-            let session = URLSession(configuration: .default)
-            
-            let task = session.dataTask(with: url) { (data, response, error) in
-                if error != nil{
-                    print(error!)
-                    return
-                }
-                
-                if let safeData = data {
-                    let parsedData = self.parseCompanyJSON(unparsedData: safeData)
-                    let finalCompaniesList = self.filterCompanyData(companyList: parsedData)
-                    self.companiesList = finalCompaniesList
-                }
-            }
             task.resume()
+            group.wait()
         }
     }
     
-    func parseCompanyJSON(unparsedData: Data) -> [CompanyData]{
+    func parseCompanyJSON(companyData : Data) -> [CompanyData]{
         let decoder = JSONDecoder()
-        var companiesList : [CompanyData] = []
-        
         do{
-            let decodedData = try decoder.decode([CompanyData].self, from: unparsedData)
-            companiesList = decodedData
-        }catch{
+            let decodedData = try decoder.decode([CompanyData].self, from: companyData)
+            return decodedData
+        }catch {
             print(error)
+            return []
         }
-        
-        return companiesList
     }
     
-    func filterCompanyData(companyList : [CompanyData]) -> [CompanyData]{
-        var finalList : [CompanyData] = []
-        for company in companyList {
-            if company.industry.contains(self.selectedIndustryId!) {
+    func filterCompanyList(list : [CompanyData]) -> [CompanyData]{
+        var finalList: [CompanyData] = []
+        
+        for company in list{
+            if company.industry.contains(selectedIndustryId!){
                 finalList.append(company)
-                print(company.company_name)
             }
         }
         
         return finalList
     }
+    
+    //MARK: - Contacts API Requests and Filter Functions
+    
+    func fetchContacts(urlString: String, completionHandler: @escaping ([ContactData]) -> ()){
+        if let url = URL(string: urlString){
+            let session = URLSession(configuration: .default)
+            let group  = DispatchGroup()
+            
+            group.enter()
+            let task = session.dataTask(with: url) { (data, response, error) in
+                if error != nil {
+                    print(error!)
+                }
+                
+                if let safeData = data {
+                    let parsedCompanyList = self.parseContactJSON(contactData: safeData)
+                    completionHandler(parsedCompanyList)
+                    group.leave()
+                }
+            }
+            
+            task.resume()
+            group.wait()
+        }
+    }
+    
+    func parseContactJSON(contactData : Data) -> [ContactData]{
+        let decoder = JSONDecoder()
+        do{
+            let decodedData = try decoder.decode([ContactData].self, from: contactData)
+            return decodedData
+        }catch {
+            print(error)
+            return []
+        }
+    }
+    
+    //MARK: - Data Manipulation Functions
+    
+    func filterContactListByIndustry(list : [ContactData]) -> [ContactData] {
+        var filteredList : [ContactData] = []
+        for contact in list{
+            if contact.industry == selectedIndustryId {
+                filteredList.append(contact)
+            }
+        }
+        return filteredList
+    }
+    
+    func assignContacts(){
+        contactList = filterContactListByIndustry(list: self.contactList)
+        
+        if companiesList.count > 0 {
+            for n in 0...(companiesList.count - 1) {
+                if contactList.count > 0 {
+                    for k in 0...(contactList.count - 1){
+                        if companiesList[n].id == contactList[k].company{
+                            companiesList[n].addContact(contact: contactList[k])
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    //MARK: - Table View Functions
+    
+    func setUpTableView(){
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CELLID")
+    }
+    
+    //Sections and Rows
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if companiesList[section].collapsed == false{
+            return 0
+        }
+        return companiesList[section].contacts.count
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return companiesList.count
+    }
+    
+    //Cell Configuration
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CELLID", for: indexPath)
+        let section  = indexPath.section
+        let contact = companiesList[section].contacts[indexPath.row]
+        cell.textLabel?.text = "\(contact.first_name) \(contact.last_name)"
+        
+        return cell
+    }
+    
+    //Header Configuration
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let button = UIButton()
+        button.tag = section
+        button.contentHorizontalAlignment = .left
+        button.setTitle(companiesList[section].company_name, for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: #selector(self.openSection), for: .touchUpInside)
+        
+        return button
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let section = indexPath.section
+        let row = indexPath.row
+        
+        let selectedContact = companiesList[section].contacts[row]
+        let contactVC = ContactViewController()
+        contactVC.selectedContact = selectedContact
+        self.navigationController?.pushViewController(contactVC, animated: true)
+    }
+    
+    @objc func openSection(button: UIButton){
+        let section = button.tag
+        var indexPaths = [IndexPath]()
+        for row in companiesList[section].contacts.indices {
+            let indexPathToDelete = IndexPath(row: row, section: section)
+            indexPaths.append(indexPathToDelete)
+        }
+        
+        let isCollapsed = companiesList[section].collapsed
+        companiesList[section].collapsed = !isCollapsed
+        
+        if isCollapsed {
+            tableView.deleteRows(at: indexPaths, with: .fade)
+        }else{
+            tableView.insertRows(at: indexPaths, with: .fade)
+        }
+        
+    }
+    
 }

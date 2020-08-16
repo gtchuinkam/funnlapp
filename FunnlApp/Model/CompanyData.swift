@@ -13,4 +13,18 @@ struct CompanyData : Decodable {
     var user : Int
     var industry : [Int]
     var company_name : String
+    
+    var contacts : [ContactData] = []
+    var collapsed : Bool = false
+    
+    private enum CodingKeys : String, CodingKey {
+        case id
+        case user
+        case industry
+        case company_name
+    }
+    
+    mutating func addContact(contact: ContactData){
+        contacts.append(contact)
+    }
 }
