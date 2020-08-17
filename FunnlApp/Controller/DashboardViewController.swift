@@ -40,9 +40,8 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(named: "button-subheader-color")
         button.setImage(UIImage(named: "contacts-card-icon"), for: .normal)
-        button.imageView?.contentMode = .scaleAspectFit
+        button.imageView?.contentMode = .scaleAspectFill
         button.contentVerticalAlignment = .fill
-        button.contentHorizontalAlignment = .fill
         button.tintColor = UIColor(named: "background-text-icon-color")
         
         return button
@@ -64,7 +63,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(named: "button-subheader-color")
         button.setImage(UIImage(named: "log-card-icon"), for: .normal)
-        button.imageView?.contentMode = .scaleAspectFit
+        button.imageView?.contentMode = .scaleAspectFill
         button.contentVerticalAlignment = .fill
         button.contentHorizontalAlignment = .fill
         button.tintColor = UIColor(named: "background-text-icon-color")
@@ -86,9 +85,11 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     let scannerButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "scanner-icon"), for: .normal)
+        button.backgroundColor = UIColor(named: "button-subheader-color")
         button.imageView?.contentMode = .scaleAspectFill
         button.contentVerticalAlignment = .fill
         button.contentHorizontalAlignment = .fill
+        button.layer.cornerRadius = 10
         
         return button
     }()
@@ -255,7 +256,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func setAddButtonConstraints(){
         addButton.translatesAutoresizingMaskIntoConstraints = false
-        addButton.bottomAnchor.constraint(equalTo: buttonContainter.bottomAnchor, constant: -10).isActive = true
+        addButton.bottomAnchor.constraint(equalTo: buttonContainter.bottomAnchor).isActive = true
         addButton.topAnchor.constraint(equalTo: buttonContainter.topAnchor, constant: 5).isActive = true
         addButton.centerXAnchor.constraint(equalTo: buttonContainter.centerXAnchor).isActive = true
         addButton.widthAnchor.constraint(equalTo: addButton.heightAnchor).isActive = true

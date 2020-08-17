@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icons8-add-100.png",
+      "filename" : "add_task.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icons8-add-100@2x.png",
+      "filename" : "add_task@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icons8-add-100@3x.png",
+      "filename" : "add_task@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -199,7 +199,7 @@ class CompaniesTableViewController: UITableViewController {
         let selectedContact = companiesList[section].contacts[row]
         let contactVC = ContactViewController()
         contactVC.selectedContact = selectedContact
-        self.navigationController?.pushViewController(contactVC, animated: true)
+        self.navigationController?.pushViewController(contactVC, animated: false)
     }
     
     @objc func openSection(button: UIButton){
