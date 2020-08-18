@@ -134,6 +134,13 @@ extension ContactViewController : UITableViewDelegate, UITableViewDataSource{
         return contactDataModel.sections.count
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let button = UIButton()
+        button.setTitle(contactDataModel.sections[section].name, for: .normal) 
+        
+        return button
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contactDataModel.sections[section].data.count
     }
@@ -146,7 +153,13 @@ extension ContactViewController : UITableViewDelegate, UITableViewDataSource{
         let currentSection = contactDataModel.sections[section]
         let currentDictionary = currentSection.data
         
-        let keys = currentDictionary.keys
+        let intIndex = row
+        let index = currentDictionary.index(currentDictionary.startIndex, offsetBy: intIndex)
+        
+        let keyString = currentDictionary.keys[index]
+        let valueString = currentDictionary[keyString] ?? "None"
+        
+        cell.textLabel?.text = "\(keyString): \(valueString)"
         
         
         return cell

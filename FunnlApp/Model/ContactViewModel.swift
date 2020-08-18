@@ -43,7 +43,7 @@ struct ContactViewModel {
         
         var historySection = ContactViewSections(assignedName: "History")
         
-        historySection.data["Last Contact Date"] = contact.most_recent_contact_date
+        historySection.data["Last Contact Date"] = contact.most_recent_contact_date ?? "None"
         historySection.data["Introduced By"] = contact.introduced_by
         sections.append(historySection)
     }

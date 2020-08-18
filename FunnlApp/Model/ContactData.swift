@@ -17,7 +17,7 @@ struct ContactData : Decodable {
     var last_name : String
     var priority : Int
     var number_of_contacts : Int
-    var most_recent_contact_date : String
+    var most_recent_contact_date : String?
     var role : String
     var introduced_by : String
     var company_website : String
