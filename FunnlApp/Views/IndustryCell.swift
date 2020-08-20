@@ -30,6 +30,8 @@ class IndustryCell: UICollectionViewCell {
     
     func setUpLabel(){
         self.addSubview(labelView)
+        self.layer.cornerCurve = .continuous
+        self.layer.cornerRadius = 15
         
         labelView.translatesAutoresizingMaskIntoConstraints = false
         labelView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true

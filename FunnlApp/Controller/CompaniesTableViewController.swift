@@ -154,7 +154,9 @@ class CompaniesTableViewController: UITableViewController {
     //MARK: - Table View Functions
     
     func setUpTableView(){
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CELLID")
+        tableView.separatorStyle = .none
+        tableView.register(CompanyContactCell.self, forCellReuseIdentifier: "CELLID")
+        tableView.register(CompanyHeaderCell.self, forHeaderFooterViewReuseIdentifier: "HEADERID")
     }
     
     //Sections and Rows
@@ -172,24 +174,29 @@ class CompaniesTableViewController: UITableViewController {
     
     //Cell Configuration
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CELLID", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CELLID", for: indexPath) as! CompanyContactCell
         let section  = indexPath.section
         let contact = companiesList[section].contacts[indexPath.row]
-        cell.textLabel?.text = "\(contact.first_name) \(contact.last_name)"
+//        cell.textLabel?.text = "\(contact.first_name) \(contact.last_name)"
         
         return cell
     }
     
     //Header Configuration
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let button = UIButton()
-        button.tag = section
-        button.contentHorizontalAlignment = .left
-        button.setTitle(companiesList[section].company_name, for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.addTarget(self, action: #selector(self.openSection), for: .touchUpInside)
         
-        return button
+        let gesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.openSection(_:)))
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HEADERID") as! CompanyHeaderCell
+        let companyName = companiesList[section].company_name
+        let companyFirstLetter = companyName.first!
+        let contactCount  = companiesList[section].contacts.count
+        view.tag = section
+        view.setUpView(companyName: companyName, imageCharacter: companyFirstLetter, contactCount: contactCount)
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(gesture)
+        
+        return view
+        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -202,21 +209,27 @@ class CompaniesTableViewController: UITableViewController {
         self.navigationController?.pushViewController(contactVC, animated: false)
     }
     
-    @objc func openSection(button: UIButton){
-        let section = button.tag
+    @objc func openSection(_ sender: UITapGestureRecognizer){
+        let section = sender.view!.tag
+        let myHeader = tableView.headerView(forSection: section) as! CompanyHeaderCell as CompanyHeaderCell
+        myHeader.arrowImage.image = UIImage(named: "arrow-down.pdf")
         var indexPaths = [IndexPath]()
         for row in companiesList[section].contacts.indices {
             let indexPathToDelete = IndexPath(row: row, section: section)
             indexPaths.append(indexPathToDelete)
         }
-        
+
         let isCollapsed = companiesList[section].collapsed
         companiesList[section].collapsed = !isCollapsed
-        
+
         if isCollapsed {
             tableView.deleteRows(at: indexPaths, with: .fade)
+            myHeader.arrowImage.image = UIImage(named: "arrow-right.pdf")
+            myHeader.numberImage.image = UIImage(named: myHeader.contactNumberImage!)
         }else{
             tableView.insertRows(at: indexPaths, with: .fade)
+            myHeader.arrowImage.image = UIImage(named: "arrow-down.pdf")
+            myHeader.numberImage.image = UIImage()
         }
         
     }

@@ -44,8 +44,10 @@ class ContactViewController: UIViewController {
     }()
     
     let tableView : UITableView = {
-        let tv  = UITableView()
+        let tv  = UITableView(frame: .zero, style: .grouped)
         tv.backgroundColor = UIColor(named: "background-text-icon-color")
+        tv.sectionFooterHeight = 0.0
+        tv.separatorStyle = .none
         return tv
     }()
     
@@ -77,7 +79,8 @@ class ContactViewController: UIViewController {
         view.addSubview(tableView)
         setTableViewConstraints()
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CELLID")
+        tableView.register(ContactInfoCell.self, forCellReuseIdentifier: "CELLID")
+        tableView.register(ContactHeaderCell.self, forHeaderFooterViewReuseIdentifier: "HEADERID")
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -135,10 +138,11 @@ extension ContactViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let button = UIButton()
-        button.setTitle(contactDataModel.sections[section].name, for: .normal) 
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HEADERID") as! ContactHeaderCell
+        let sectionTitle = contactDataModel.sections[section].name
+        view.setTitle(as: sectionTitle)
         
-        return button
+        return view
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -146,7 +150,7 @@ extension ContactViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CELLID", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CELLID", for: indexPath) as! ContactInfoCell
         let section = indexPath.section
         let row = indexPath.row
         
@@ -159,9 +163,9 @@ extension ContactViewController : UITableViewDelegate, UITableViewDataSource{
         let keyString = currentDictionary.keys[index]
         let valueString = currentDictionary[keyString] ?? "None"
         
-        cell.textLabel?.text = "\(keyString): \(valueString)"
-        
+        cell.setText(key: keyString, value: valueString)
         
         return cell
     }
+    
 }
