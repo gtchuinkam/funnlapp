@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -37,7 +37,6 @@
 		2C1804FF24ECCAA600E25979 /* CompanyContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1804FE24ECCAA600E25979 /* CompanyContactCell.swift */; };
 		2C26322C24E5F27C004E7671 /* CompaniesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C26322B24E5F27C004E7671 /* CompaniesTableViewController.swift */; };
 		2C26322E24E5FAE2004E7671 /* CompanyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C26322D24E5FAE2004E7671 /* CompanyData.swift */; };
-		2C26323024E60633004E7671 /* CollapsableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C26322F24E60633004E7671 /* CollapsableViewModel.swift */; };
 		2C26323224E60BFD004E7671 /* ContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C26323124E60BFD004E7671 /* ContactData.swift */; };
 		2C8357C624E085FD00848E91 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8357C524E085FD00848E91 /* TaskTableViewCell.swift */; };
 		2C8357CA24E0A80500848E91 /* IndustryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8357C924E0A80500848E91 /* IndustryViewController.swift */; };
@@ -47,9 +46,12 @@
 		2CAC8ED624DB5E25006078E9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAC8ED524DB5E25006078E9 /* HomeViewController.swift */; };
 		2CAC8EDB24DB5E27006078E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CAC8EDA24DB5E27006078E9 /* Assets.xcassets */; };
 		2CAC8EDE24DB5E27006078E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CAC8EDC24DB5E27006078E9 /* LaunchScreen.storyboard */; };
+		2CB9E53F24F347F900678A93 /* CreateContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB9E53E24F347F900678A93 /* CreateContactController.swift */; };
+		2CBE371124F0286300D9AFDC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBE371024F0286300D9AFDC /* DataManager.swift */; };
 		2CCBDBD024DF5AF900CC7646 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBDBCF24DF5AF900CC7646 /* DashboardViewController.swift */; };
 		2CEE425F24E5D8BB0085759A /* IndustryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEE425E24E5D8BB0085759A /* IndustryData.swift */; };
 		2CEE426224E5E4FA0085759A /* IndustryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEE426124E5E4FA0085759A /* IndustryCell.swift */; };
+		7412FD58BB56F64C9FB85ECE /* Pods_FunnlApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE3C4891535F75B8BDE64DD5 /* Pods_FunnlApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,7 +85,6 @@
 		2C1804FE24ECCAA600E25979 /* CompanyContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyContactCell.swift; sourceTree = "<group>"; };
 		2C26322B24E5F27C004E7671 /* CompaniesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesTableViewController.swift; sourceTree = "<group>"; };
 		2C26322D24E5FAE2004E7671 /* CompanyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyData.swift; sourceTree = "<group>"; };
-		2C26322F24E60633004E7671 /* CollapsableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsableViewModel.swift; sourceTree = "<group>"; };
 		2C26323124E60BFD004E7671 /* ContactData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactData.swift; sourceTree = "<group>"; };
 		2C8357C524E085FD00848E91 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		2C8357C924E0A80500848E91 /* IndustryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndustryViewController.swift; sourceTree = "<group>"; };
@@ -95,9 +96,14 @@
 		2CAC8EDA24DB5E27006078E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CAC8EDD24DB5E27006078E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CAC8EDF24DB5E27006078E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CB9E53E24F347F900678A93 /* CreateContactController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactController.swift; sourceTree = "<group>"; };
+		2CBE371024F0286300D9AFDC /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		2CCBDBCF24DF5AF900CC7646 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		2CEE425E24E5D8BB0085759A /* IndustryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndustryData.swift; sourceTree = "<group>"; };
 		2CEE426124E5E4FA0085759A /* IndustryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndustryCell.swift; sourceTree = "<group>"; };
+		992666C5BF0D837EB869F1D4 /* Pods-FunnlApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnlApp.release.xcconfig"; path = "Target Support Files/Pods-FunnlApp/Pods-FunnlApp.release.xcconfig"; sourceTree = "<group>"; };
+		EE3C4891535F75B8BDE64DD5 /* Pods_FunnlApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FunnlApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8F3FA3D0868369BAA6A125C /* Pods-FunnlApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunnlApp.debug.xcconfig"; path = "Target Support Files/Pods-FunnlApp/Pods-FunnlApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7412FD58BB56F64C9FB85ECE /* Pods_FunnlApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +179,7 @@
 				2C8357C924E0A80500848E91 /* IndustryViewController.swift */,
 				2C26322B24E5F27C004E7671 /* CompaniesTableViewController.swift */,
 				2C0F970224E9A79A007C50C3 /* ContactViewController.swift */,
+				2CB9E53E24F347F900678A93 /* CreateContactController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,6 +189,8 @@
 			children = (
 				2CAC8ED024DB5E25006078E9 /* FunnlApp */,
 				2CAC8ECF24DB5E25006078E9 /* Products */,
+				31DF83886B3198F70DC32734 /* Pods */,
+				DD509504408B8A080D6E51A7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -216,6 +226,7 @@
 				2C26323124E60BFD004E7671 /* ContactData.swift */,
 				2C1804F324EA083600E25979 /* ContactViewSections.swift */,
 				2C1804F524EA095B00E25979 /* ContactViewModel.swift */,
+				2CBE371024F0286300D9AFDC /* DataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -225,13 +236,29 @@
 			children = (
 				2C8357C524E085FD00848E91 /* TaskTableViewCell.swift */,
 				2CEE426124E5E4FA0085759A /* IndustryCell.swift */,
-				2C26322F24E60633004E7671 /* CollapsableViewModel.swift */,
 				2C1804F724EC559B00E25979 /* ContactHeaderCell.swift */,
 				2C1804F924EC61A200E25979 /* ContactInfoCell.swift */,
 				2C1804FB24EC912100E25979 /* CompanyHeaderCell.swift */,
 				2C1804FE24ECCAA600E25979 /* CompanyContactCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		31DF83886B3198F70DC32734 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F8F3FA3D0868369BAA6A125C /* Pods-FunnlApp.debug.xcconfig */,
+				992666C5BF0D837EB869F1D4 /* Pods-FunnlApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DD509504408B8A080D6E51A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE3C4891535F75B8BDE64DD5 /* Pods_FunnlApp.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,9 +268,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CAC8EE224DB5E27006078E9 /* Build configuration list for PBXNativeTarget "FunnlApp" */;
 			buildPhases = (
+				E51937CFF30BC1FEDA44D501 /* [CP] Check Pods Manifest.lock */,
 				2CAC8ECA24DB5E25006078E9 /* Sources */,
 				2CAC8ECB24DB5E25006078E9 /* Frameworks */,
 				2CAC8ECC24DB5E25006078E9 /* Resources */,
+				6BE8EE1F09B4557E6734D0C9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -318,6 +347,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6BE8EE1F09B4557E6734D0C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FunnlApp/Pods-FunnlApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FunnlApp/Pods-FunnlApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FunnlApp/Pods-FunnlApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E51937CFF30BC1FEDA44D501 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FunnlApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2CAC8ECA24DB5E25006078E9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -328,6 +399,7 @@
 				2C109DF424DCBD1D00024135 /* LogInViewController.swift in Sources */,
 				2CCBDBD024DF5AF900CC7646 /* DashboardViewController.swift in Sources */,
 				2C1804FA24EC61A200E25979 /* ContactInfoCell.swift in Sources */,
+				2CBE371124F0286300D9AFDC /* DataManager.swift in Sources */,
 				2C1804F824EC559B00E25979 /* ContactHeaderCell.swift in Sources */,
 				2C1804F424EA083600E25979 /* ContactViewSections.swift in Sources */,
 				2C26322E24E5FAE2004E7671 /* CompanyData.swift in Sources */,
@@ -339,11 +411,11 @@
 				2CEE425F24E5D8BB0085759A /* IndustryData.swift in Sources */,
 				2C1804FF24ECCAA600E25979 /* CompanyContactCell.swift in Sources */,
 				2C1804FC24EC912100E25979 /* CompanyHeaderCell.swift in Sources */,
+				2CB9E53F24F347F900678A93 /* CreateContactController.swift in Sources */,
 				2CA62D8424E497D5005D39B3 /* TabController.swift in Sources */,
 				2C109DF624DCBE8E00024135 /* SignUpViewController.swift in Sources */,
 				2CEE426224E5E4FA0085759A /* IndustryCell.swift in Sources */,
 				2C26322C24E5F27C004E7671 /* CompaniesTableViewController.swift in Sources */,
-				2C26323024E60633004E7671 /* CollapsableViewModel.swift in Sources */,
 				2C26323224E60BFD004E7671 /* ContactData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,6 +550,7 @@
 		};
 		2CAC8EE324DB5E27006078E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8F3FA3D0868369BAA6A125C /* Pods-FunnlApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -496,6 +569,7 @@
 		};
 		2CAC8EE424DB5E27006078E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 992666C5BF0D837EB869F1D4 /* Pods-FunnlApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -120,8 +120,27 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     
     //MARK: - viewDidLoad Function
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+        self.extendedLayoutIncludesOpaqueBars = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUpViews()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+
+    //MARK: - Constraint Functions
+
+    func setUpViews(){
         view.backgroundColor = UIColor(named: "background-text-icon-color")
         
         //Cards Container Handlers
@@ -173,11 +192,8 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         setUpIBActions()
         
         setUpNavBar()
-        
     }
-
-    //MARK: - Constraint Functions
-
+    
     func setUpNavBar(){
         
         //Background Styling

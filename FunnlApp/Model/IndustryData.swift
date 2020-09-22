@@ -11,4 +11,15 @@ import Foundation
 struct IndustryData: Decodable{
     var id: Int
     var industry_name: String
+    
+    var companies : [CompanyData] = []
+    
+    private enum CodingKeys: String, CodingKey { case id, industry_name }
+    
+}
+
+extension IndustryData : Equatable{
+    static func == (lhs: IndustryData, rhs: IndustryData) -> Bool {
+        return lhs.id == rhs.id && lhs.industry_name == rhs.industry_name
+    }
 }

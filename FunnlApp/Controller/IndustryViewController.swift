@@ -10,6 +10,11 @@ import UIKit
 
 class IndustryViewController: UIViewController {
     var industriesList : [IndustryData]?
+    var companiesList : [CompanyData]?
+    var contactList : [ContactData]?
+    
+    var referenceList : [IndustryData] = []
+    
     
     let collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -23,59 +28,27 @@ class IndustryViewController: UIViewController {
         return cv
     }()
     
+    var dataManager = DataManager()
+    
 //MARK: - ViewDidLoad Function
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        dataManager.delegate = self
+        
+        dataManager.fetchCompanyData()
+        dataManager.fetchContactData()
+        dataManager.fetchIndustryData()
+        
         view.backgroundColor = UIColor(named: "background-text-icon-color")
-        fecthIndustries()
         
         setUpNavBar()
         
         view.addSubview(collectionView)
         setCollectionViewConstraints()
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-    }
-    
-//MARK:  - API Request Handlers
-    func fecthIndustries(){
-        let urlString = "http://localhost:8000/api/industries/?format=json"
-        if let url = URL(string: urlString){
-            
-            let session = URLSession(configuration: .default)
-            
-            let task = session.dataTask(with: url) { (data, response, error) in
-                if error != nil{
-                    print(error!)
-                    return
-                }
-                
-                if let safeData = data {
-                    let myIndustries = self.parseJSON(industryData: safeData)
-                    self.industriesList = myIndustries
-                    
-                    DispatchQueue.main.async {
-                        self.collectionView.reloadData()
-                    }
-                }
-            }
-            task.resume()
-        }
-    }
-    
-    func parseJSON(industryData: Data) -> [IndustryData]{
-        let decoder = JSONDecoder()
-        var industriesList : [IndustryData] = []
-        
-        do{
-            let decodedData = try decoder.decode([IndustryData].self, from: industryData)
-            industriesList = decodedData
-        }catch{
-            print(error)
-        }
-        
-        return industriesList
     }
     
     //MARK: - Constraint Functions
@@ -98,18 +71,55 @@ class IndustryViewController: UIViewController {
         collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
     }
+    
+    func createReferenceList(){
+        for contact in self.contactList! {
+            let contactIndustry : IndustryData? = {
+                for industry in industriesList!{
+                    if industry.id == contact.industry {
+                        return industry
+                    }
+                }
+                return nil
+            }()
+            let contactCompany : CompanyData? = {
+                for company in companiesList!{
+                    if company.id == contact.company{
+                        return company
+                    }
+                }
+                return nil
+            }()
+            
+            if referenceList.contains(contactIndustry!) == false {
+                referenceList.append(contactIndustry!)
+            }
+            
+            let industryIndex = referenceList.firstIndex(of: contactIndustry!)!
+            if (referenceList[industryIndex].companies.contains(contactCompany!) == false){
+                referenceList[industryIndex].companies.append(contactCompany!)
+            }
+            
+            let companyIndex = referenceList[industryIndex].companies.firstIndex(of: contactCompany!)!
+            referenceList[industryIndex].companies[companyIndex].contacts.append(contact)
+            
+        }
+    }
+    
 }
+
 
 //MARK: - Colction View Protocols
 extension IndustryViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return industriesList?.count ?? 0
+        return referenceList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! IndustryCell
         cell.backgroundColor = .white
-        cell.labelView.text = industriesList![indexPath.row].industry_name
+        let row = indexPath.row
+        cell.labelView.text = referenceList[row].industry_name
         
         return cell
     }
@@ -121,9 +131,42 @@ extension IndustryViewController: UICollectionViewDelegateFlowLayout, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let newVC = CompaniesTableViewController()
         newVC.title = industriesList![indexPath.row].industry_name
-        newVC.selectedIndustryId = industriesList![indexPath.row].id
+        newVC.selectedIndustryIndex = indexPath.row
+        newVC.companiesList = self.companiesList
+        newVC.contactList = self.contactList
+        newVC.industryList = self.industriesList
+        newVC.referenceList = self.referenceList
         newVC.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(newVC, animated: true)
+    }
+    
+}
+
+//MARK: - DataManager Delegate Functions
+extension IndustryViewController: DataManagerDelegate{
+    func didUpdateContacts(contactList: [ContactData]) {
+        DispatchQueue.main.async{
+            self.contactList = contactList
+        }
+    }
+    
+    func didUpdateCompanies(companyList: [CompanyData]) {
+        DispatchQueue.main.async{
+            self.companiesList = companyList
+        }
+    }
+    
+    func didUpdateIndustries(industryList: [IndustryData]) {
+        DispatchQueue.main.async{
+            self.industriesList = industryList
+            self.collectionView.reloadData()
+            self.createReferenceList()
+            print(self.referenceList)
+        }
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
     }
     
 }

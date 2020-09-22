@@ -49,7 +49,7 @@ class CompanyContactCell: UITableViewCell {
         setProfileImageViewConstraints()
         
         containerView.addSubview(contactNameLabel)
-        setContactNameLabel()
+        setContactNameLabelConstraints()
         
         containerView.addSubview(seperatorView)
         setSeperatorViewCOnstraints()
@@ -76,7 +76,7 @@ class CompanyContactCell: UITableViewCell {
         profileImageView.widthAnchor.constraint(equalTo: profileImageView.heightAnchor, multiplier: 1).isActive = true
     }
     
-    func setContactNameLabel(){
+    func setContactNameLabelConstraints(){
         contactNameLabel.translatesAutoresizingMaskIntoConstraints = false
         contactNameLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 5).isActive = true
         contactNameLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -5).isActive = true

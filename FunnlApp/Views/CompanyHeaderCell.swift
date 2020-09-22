@@ -39,7 +39,7 @@ class CompanyHeaderCell: UITableViewHeaderFooterView {
     
     let companyNameLabel : UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Roboto", size: 20)
+        label.font = UIFont(name: "Roboto", size: 25)
         label.textColor = UIColor(named: "background-text-icon-color")
         label.text  = "Sample Company"
         return label
@@ -59,7 +59,6 @@ class CompanyHeaderCell: UITableViewHeaderFooterView {
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier : reuseIdentifier)
-        self.heightAnchor.constraint(equalToConstant: 44).isActive = true
         
         addSubview(containerView)
         setContainerViewConstraints()
